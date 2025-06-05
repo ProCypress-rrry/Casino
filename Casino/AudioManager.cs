@@ -45,7 +45,7 @@ namespace Casino
                 audioFile.Volume = mute ? 0 : Volume;
             }
         }
-
+        /// Toggles mute state
         public static void ToggleMute()
         {
             Mute(!IsMuted);
