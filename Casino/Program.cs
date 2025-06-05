@@ -7,7 +7,7 @@ namespace Casino
     {
         /// <summary>
         ///  The main entry point for the application.
-        /// </summary>
+        /// </summary>hh
         [STAThread]
         static void Main()
         {
