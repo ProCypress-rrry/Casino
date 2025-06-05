@@ -28,22 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            volumeMeter1 = new NAudio.Gui.VolumeMeter();
             label1 = new Label();
             label2 = new Label();
             button1 = new Button();
+            trackBarVolume = new TrackBar();
+            ((System.ComponentModel.ISupportInitialize)trackBarVolume).BeginInit();
             SuspendLayout();
-            // 
-            // volumeMeter1
-            // 
-            volumeMeter1.Amplitude = 0F;
-            volumeMeter1.Location = new Point(36, 34);
-            volumeMeter1.MaxDb = 18F;
-            volumeMeter1.MinDb = -60F;
-            volumeMeter1.Name = "volumeMeter1";
-            volumeMeter1.Size = new Size(207, 34);
-            volumeMeter1.TabIndex = 0;
-            volumeMeter1.Text = "volumeMeter1";
             // 
             // label1
             // 
@@ -73,19 +63,27 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click_1;
             // 
+            // trackBarVolume
+            // 
+            trackBarVolume.Location = new Point(36, 23);
+            trackBarVolume.Name = "trackBarVolume";
+            trackBarVolume.Size = new Size(156, 69);
+            trackBarVolume.TabIndex = 4;
+            // 
             // Settings
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveBorder;
             ClientSize = new Size(800, 450);
+            Controls.Add(trackBarVolume);
             Controls.Add(button1);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(volumeMeter1);
             Name = "Settings";
             Text = "Settings";
             Load += Settings_Load;
+            ((System.ComponentModel.ISupportInitialize)trackBarVolume).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -94,9 +92,9 @@
 
         private StatusStrip statusStrip1;
         private ToolStripProgressBar toolStripProgressBar1;
-        private NAudio.Gui.VolumeMeter volumeMeter1;
         private Label label1;
         private Label label2;
         private Button button1;
+        private TrackBar trackBarVolume;
     }
 }

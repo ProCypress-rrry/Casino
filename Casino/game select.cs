@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Casino
@@ -15,6 +9,12 @@ namespace Casino
         public Form2()
         {
             InitializeComponent();
+
+            // Subscribe to chips changed event
+            GameData.ChipsChanged += UpdateChipsDisplay;
+
+            // Show initial chip count
+            UpdateChipsDisplay();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -26,7 +26,31 @@ namespace Casino
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            // Optional: extra chip update if needed
+            UpdateChipsDisplay();
+        }
 
+        private void label2_Click(object sender, EventArgs e)
+        {
+            // You can remove this if unused
+        }
+
+        private void UpdateChipsDisplay()
+        {
+            labelChips.Text = $"Chips: {GameData.Chips}";
+        }
+
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            GameData.ChipsChanged -= UpdateChipsDisplay;
+            base.OnFormClosed(e);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Blackjack blackjack = new Blackjack();
+            blackjack.Show();
+            this.Hide();
         }
     }
 }

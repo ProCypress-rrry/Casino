@@ -1,3 +1,6 @@
+using System;
+using System.Windows.Forms;
+
 namespace Casino
 {
     internal static class Program
@@ -8,10 +11,17 @@ namespace Casino
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
+            // Hook into application exit event to stop music
+            Application.ApplicationExit += OnApplicationExit;
+
             ApplicationConfiguration.Initialize();
             Application.Run(new Main());
+        }
+
+        private static void OnApplicationExit(object sender, EventArgs e)
+        {
+            // Clean up audio when the whole app closes
+            AudioManager.Cleanup();
         }
     }
 }

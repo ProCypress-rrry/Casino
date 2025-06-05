@@ -34,6 +34,7 @@
             button1 = new Button();
             button2 = new Button();
             label1 = new Label();
+            labelChips = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -76,6 +77,7 @@
             button2.TabIndex = 3;
             button2.Text = "BlackJack";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // label1
             // 
@@ -88,12 +90,23 @@
             label1.TabIndex = 4;
             label1.Text = "Total Chips left";
             // 
+            // labelChips
+            // 
+            labelChips.AutoSize = true;
+            labelChips.Location = new Point(363, 44);
+            labelChips.Name = "labelChips";
+            labelChips.Size = new Size(59, 25);
+            labelChips.TabIndex = 5;
+            labelChips.Text = "label2";
+            labelChips.Click += label2_Click;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Green;
             ClientSize = new Size(800, 450);
+            Controls.Add(labelChips);
             Controls.Add(label1);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -115,5 +128,6 @@
         private Button button1;
         private Button button2;
         private Label label1;
+        private Label labelChips;
     }
 }
